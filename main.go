@@ -23,7 +23,8 @@ func main() {
 	playerIsmail.PickUpItem(mapOfItems[2])
 	playerIsmail.PickUpItem(mapOfItems[0])
 	playerIsmail.PickUpItem(mapOfItems[2])
-	playerIsmail.UseItem("Sword")
+	fmt.Println(playerIsmail)
+	playerIsmail.UseItem("Jacket")
 
 	fmt.Println(playerIsmail)
 }

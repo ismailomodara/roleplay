@@ -21,14 +21,8 @@ func (p *Player) itemExists(newItem item.Item) (int, error) {
 }
 
 func (p *Player) PickUpItem(item item.Item) {
-	index, _ := p.itemExists(item)
-	if index == -1 {
-		p.Inventory = append(p.Inventory, item)
-		fmt.Printf("New item added - %s\n", item.Name)
-		return
-	}
-	fmt.Printf("Item already exist in inventory - %s\n", item.Name)
-	return
+	p.Inventory = append(p.Inventory, item)
+	fmt.Printf("New item added - %s\n", item.Name)
 }
 
 func (p *Player) DropItem(itemName string) {
@@ -46,6 +40,7 @@ func (p *Player) UseItem(itemName string) {
 	if err == nil {
 		itemInInventory := p.Inventory[index]
 		fmt.Printf("Now using %s for %s\n", itemInInventory.Name, itemInInventory.Type)
+		p.DropItem(itemName)
 		return
 	}
 	fmt.Println(err)
